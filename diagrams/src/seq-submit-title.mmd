@@ -1,0 +1,20 @@
+sequenceDiagram
+    actor A as Author
+    participant FE as Web client
+    participant API as REST API
+    participant AGG as Aggregation module
+    participant YT as YouTube Data API
+    participant DB as PostgreSQL
+    actor M as Moderator
+    A->>FE: Paste playlist URL
+    FE->>API: POST /api/submissions {url}
+    API->>AGG: importPlaylist(id)
+    AGG->>YT: playlists.list (1 unit)
+    AGG->>YT: playlistItems.list (1 unit / 50 items)
+    AGG->>YT: videos.list (durations, 1 unit / 50 ids)
+    YT-->>AGG: metadata
+    AGG->>DB: save title (PENDING), seasons, episodes
+    API-->>FE: 201 Created
+    M->>FE: Open moderation queue
+    FE->>API: POST /api/submissions/{id}/approve
+    API->>DB: moderation_status = PUBLISHED
