@@ -36,6 +36,10 @@ Test IDs map to requirement groups: T-CAT (FR-1…6), T-PLAY (FR-7, 8), T-USR (F
 - **User test:** 5–8 participants who did not take part in development, 6 tasks each (find a horror short, watch an episode, rate a title, add it to a list, compare two titles, open recommendations). After the tasks they fill in the SUS questionnaire.
 - All raw results are stored in `tests/results/`.
 
+The SUS target of 70 is based on Bangor, Kortum and Miller (2008): in their analysis of more than 2,300 SUS surveys, scores above 70 correspond to acceptable usability, while the mean across products was about 70.
+
+> Bangor, A., Kortum, P. T., Miller, J. T. (2008). An empirical evaluation of the System Usability Scale. *International Journal of Human–Computer Interaction*, 24(6), 574–594. https://doi.org/10.1080/10447310802205776
+
 ## 9.4 Baselines for comparison
 
 | Component | Baseline | Why |
