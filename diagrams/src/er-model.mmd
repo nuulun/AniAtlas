@@ -1,0 +1,82 @@
+erDiagram
+    TITLE ||--o{ SEASON : has
+    SEASON ||--o{ EPISODE : has
+    TITLE }o--o{ GENRE : title_genre
+    TITLE }o--o{ TAG : title_tag
+    TITLE }o--o{ AUTHOR : title_author
+    APP_USER ||--o{ RATING : gives
+    APP_USER ||--o{ REVIEW : writes
+    APP_USER ||--o{ LIST_ENTRY : keeps
+    APP_USER }o--o{ GENRE : preferred_genre
+    TITLE ||--o{ RATING : receives
+    TITLE ||--o{ REVIEW : receives
+    TITLE ||--o{ LIST_ENTRY : in
+    APP_USER ||--o{ TITLE : submits
+
+    TITLE {
+        bigint id PK
+        varchar name
+        text description
+        varchar poster_url
+        varchar format
+        varchar status
+        int release_year
+        varchar source_playlist_id
+        varchar moderation_status
+        bigint submitted_by FK
+        timestamp created_at
+    }
+    SEASON {
+        bigint id PK
+        bigint title_id FK
+        int number
+        varchar name
+    }
+    EPISODE {
+        bigint id PK
+        bigint season_id FK
+        int number
+        varchar name
+        varchar youtube_video_id UK
+        int duration_sec
+        boolean available
+        date published_at
+    }
+    GENRE {
+        int id PK
+        varchar name UK
+    }
+    TAG {
+        int id PK
+        varchar name UK
+    }
+    AUTHOR {
+        bigint id PK
+        varchar name
+        varchar youtube_channel_id UK
+    }
+    APP_USER {
+        bigint id PK
+        varchar email UK
+        varchar password_hash
+        varchar username UK
+        varchar role
+    }
+    RATING {
+        bigint user_id PK
+        bigint title_id PK
+        smallint score
+    }
+    REVIEW {
+        bigint id PK
+        bigint user_id FK
+        bigint title_id FK
+        text body
+        timestamp created_at
+    }
+    LIST_ENTRY {
+        bigint user_id PK
+        bigint title_id PK
+        varchar list_type
+        int last_episode
+    }

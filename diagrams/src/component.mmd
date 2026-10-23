@@ -1,0 +1,44 @@
+%% Component Diagram (draft) — AniAtlas
+flowchart LR
+    subgraph Browser["Browser"]
+        FE["<b>Web client</b><br/>React + Vite<br/><small>pages: catalogue, title, compare,<br/>profile, moderation</small>"]
+        PL["YouTube IFrame<br/>Player component"]
+    end
+
+    subgraph Backend["Backend — Spring Boot (Docker container)"]
+        GW["<b>REST API layer</b><br/><small>controllers, OpenAPI, validation</small>"]
+        SEC["<b>Auth</b><br/><small>Spring Security, JWT, roles</small>"]
+        CAT["<b>Catalogue module</b><br/><small>titles, seasons, episodes,<br/>genres, tags, search</small>"]
+        USR["<b>User activity module</b><br/><small>ratings, reviews, lists</small>"]
+        AGG["<b>Aggregation module</b><br/><small>playlist import, scheduled sync,<br/>quota counter, cache</small>"]
+        REC["<b>Recommendation module</b><br/><small>profile builder, similarity ranking</small>"]
+        REPO["<b>Persistence</b><br/><small>Spring Data JPA, Flyway</small>"]
+    end
+
+    DB[("PostgreSQL 16<br/><small>(Docker container)</small>")]
+    YTAPI["YouTube Data API v3"]
+    YTP["YouTube embed servers"]
+
+    FE -- "REST/JSON + JWT" --> GW
+    PL -- "iframe" --> YTP
+    FE --> PL
+    GW --> SEC
+    GW --> CAT
+    GW --> USR
+    GW --> AGG
+    GW --> REC
+    REC -- "reads ratings, lists" --> USR
+    REC -- "reads genre/tag vectors" --> CAT
+    AGG -- "creates titles/episodes" --> CAT
+    CAT --> REPO
+    USR --> REPO
+    AGG --> REPO
+    REC --> REPO
+    SEC --> REPO
+    REPO -- "JDBC" --> DB
+    AGG -- "HTTPS, API key" --> YTAPI
+
+    classDef ext fill:#999,stroke:#666,color:#fff
+    classDef comp fill:#eef4fb,stroke:#1168bd,color:#000
+    class YTAPI,YTP ext
+    class FE,PL,GW,SEC,CAT,USR,AGG,REC,REPO comp
