@@ -79,5 +79,6 @@ Each decision is evaluated against requirements from [Section 6](06-requirements
 | Video playback | YouTube IFrame Player API | Downloading or re-hosting video | Legal compliance (NFR-6); views stay with the author |
 | Metadata source | YouTube Data API v3 | Web scraping | Officially supported, within ToS, quota-managed |
 | Migrations | Flyway | Liquibase, Hibernate `ddl-auto` | Versioned SQL scripts, simple |
+| Authentication | JWT (stateless) with Spring Security | Server-side sessions; login via Google OAuth | Works with a separate React SPA and stateless backend containers; Google login can be added later without changing the API (NFR-2) |
 | Deployment | Docker Compose | Kubernetes, bare metal | Sufficient for an MVP; one-command start (NFR-4) |
 | CI | GitHub Actions | GitLab CI, Jenkins | Repository is on GitHub |
