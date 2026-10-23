@@ -1,0 +1,47 @@
+// Use Case Diagram — AniAtlas (Graphviz source; render: dot -Tpng use-case.dot -o use-case.png)
+digraph UseCases {
+  rankdir=LR; splines=true; nodesep=0.35; ranksep=1.1;
+  fontname="Helvetica"; node [fontname="Helvetica", fontsize=11]; edge [fontname="Helvetica", fontsize=9, arrowhead=none];
+
+  // Actors
+  node [shape=none, image="", labelloc=b];
+  Guest     [label="🧍\nGuest", fontsize=12];
+  Viewer    [label="🧍\nViewer", fontsize=12];
+  Author    [label="🧍\nAuthor", fontsize=12];
+  Moderator [label="🧍\nModerator", fontsize=12];
+  YouTube   [label="«system»\nYouTube", shape=box, style="rounded", fontsize=11];
+
+  subgraph cluster_sys {
+    label="AniAtlas"; labelloc=b; fontsize=14; style="rounded"; color="#1168bd"; penwidth=1.5;
+    node [shape=ellipse, style=filled, fillcolor="#eef4fb", color="#1168bd"];
+    UC1  [label="UC-1 Search and\nfilter catalogue"];
+    UC2  [label="UC-2 View title page"];
+    UC3  [label="UC-3 Watch episode"];
+    UC4  [label="UC-4 Register / log in"];
+    UC12 [label="Choose favourite\ngenres"];
+    UC5  [label="UC-5 Rate and review"];
+    UC6  [label="UC-6 Manage watch lists"];
+    UC7  [label="UC-7 Compare titles"];
+    UC10 [label="UC-10 Get\nrecommendations"];
+    UC8  [label="UC-8 Submit title\nby playlist URL"];
+    UC9  [label="UC-9 Moderate submissions,\ngenres and tags"];
+    UC11 [label="UC-11 Sync metadata\n(scheduled)"];
+  }
+
+  Guest -> {UC1 UC2 UC3 UC4};
+  Viewer -> {UC5 UC6 UC7 UC10};
+  Author -> UC8;
+  Moderator -> UC9;
+  {UC3 UC8 UC11} -> YouTube;
+
+  // Generalisation (child -> parent)
+  edge [arrowhead=onormal, style=solid];
+  Viewer -> Guest [constraint=false];
+  Author -> Viewer [constraint=false];
+  Moderator -> Viewer [constraint=false];
+
+  // include / extend
+  edge [arrowhead=vee, style=dashed];
+  UC4 -> UC12 [label="«include»"];
+  UC3 -> UC2 [label="«extend»"];
+}

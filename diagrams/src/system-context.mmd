@@ -1,0 +1,26 @@
+%% System Context Diagram (C4 level 1) — AniAtlas
+flowchart TB
+    guest["👤 Guest / Viewer<br/><small>Finds, watches, rates and tracks<br/>independent animated series</small>"]
+    author["👤 Author<br/><small>Submits own series<br/>by YouTube playlist link</small>"]
+    moder["👤 Moderator<br/><small>Approves submissions,<br/>manages genres and tags</small>"]
+
+    sys["<b>AniAtlas</b><br/><small>Web platform for discovery and cataloguing<br/>of independent web animation</small>"]
+
+    ytapi["YouTube Data API v3<br/><small>[External system]<br/>Playlist, video and channel metadata</small>"]
+    ytplayer["YouTube IFrame Player<br/><small>[External system]<br/>Official embedded video playback</small>"]
+    mail["Email service (SMTP)<br/><small>[External system, optional]<br/>Account emails</small>"]
+
+    guest -- "Searches, filters, rates,<br/>keeps lists [HTTPS]" --> sys
+    author -- "Submits playlist URL [HTTPS]" --> sys
+    moder -- "Moderates catalogue [HTTPS]" --> sys
+    sys -- "Imports metadata,<br/>checks availability [HTTPS/JSON]" --> ytapi
+    sys -- "Embeds episodes by video ID" --> ytplayer
+    guest -. "Video stream is served<br/>directly by YouTube" .-> ytplayer
+    sys -. "Sends emails" .-> mail
+
+    classDef person fill:#08427b,stroke:#052e56,color:#fff
+    classDef system fill:#1168bd,stroke:#0b4884,color:#fff
+    classDef ext fill:#999999,stroke:#6b6b6b,color:#fff
+    class guest,author,moder person
+    class sys system
+    class ytapi,ytplayer,mail ext
