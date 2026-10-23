@@ -1,0 +1,27 @@
+# Secrets
+.env
+*.pem
+*.key
+
+# Java / Maven / Gradle
+target/
+build/
+.gradle/
+*.class
+*.jar
+!**/maven-wrapper.jar
+
+# Node
+node_modules/
+dist/
+.vite/
+
+# IDE / OS
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
