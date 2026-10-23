@@ -31,13 +31,14 @@ Legend: ✅ supported · ◐ partly · ❌ not supported
 | C10 | Free for viewers | ✅ | ✅ | ✅ | ✅ | ✅ |
 
 ## 4.3 Evidence
+Each cell was checked on the live services on 23 October 2026 using *The Amazing Digital Circus* as the test case. Screenshots are stored in [`docs/evidence/existing-systems/`](evidence/existing-systems/):
 
-Claims in the table must be supported by evidence. Before submission, the team checks each cell on the live service and saves screenshots to `docs/evidence/existing-systems/` with the check date in the file name, for example `imdb-search-2026-10-23.png`. Already supported by documents:
-
-- MAL scope (C1): database guidelines limit entries to professionally produced animation made in Japan, with China and Korea also accepted [S7].
-- YouTube recommendations (C8, C9): engagement-driven deep recommender [2]; popularity bias [6, 14].
-
-**Example of an independent series to use in the checks:** *The Amazing Digital Circus* (GLITCH). Check whether it is listed, filterable and rated in each system.
+| File | What it shows | Criteria |
+|---|---|---|
+| `imdb-search-2026-10-23.png`, `imdb-title-2026-10-23.png` | Title page with rating and watchlist, no in-site playback | C2, C4, C5, C6 |
+| `myanimelist-search-2026-10-23.png` | The series is not in the MAL database | C1, C9 |
+| `youtube-search-2026-10-23.png` | Keyword search only, no genre/format/status filters | C2, C3 |
+| `fandom-wiki-2026-10-23.png` | A wiki dedicated to one series only | C1, C9 |
 
 ## 4.4 Conclusion
 
