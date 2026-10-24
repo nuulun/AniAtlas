@@ -4,7 +4,7 @@
 |---|---|
 | **Project title** | AniAtlas — a platform for the discovery and cataloguing of independent web animation |
 | **Team** | Nurlan Bekov (SE-2406) — frontend, co-architect<br>Madiyar Armish (SE-2420) — backend, SRE/DevOps |
-| **Supervisor** | Akbota Tursynkulova |
+| **Supervisor** | Akbota Rakym |
 | **Programme** | Software Engineering, Astana IT University |
 
 ## 1.1 Problem statement
