@@ -40,7 +40,7 @@ Every *Must* requirement has an acceptance criterion that can be checked by a te
 | FR-17 | The system recommends unseen titles ranked by similarity to the profile, with an explanation ("because you like …") | M | Recommendations exclude titles already in the user's lists; each item has an explanation; offline precision@10 is above the popularity baseline (Section 9) | [1, 6, 7] |
 | FR-18 | New users choose at least 3 favourite genres at sign-up (cold start) | M | A new user with no ratings receives non-empty recommendations matching the chosen genres | [5] |
 | FR-19 | The moderator manages genres and tags and can edit or reject titles | S | CRUD for genres/tags is available only to the MODERATOR role | — |
-| FR-20 | Notifications about new episodes of titles in "watching" | C | — | A4 |
+| FR-20 | Notify the viewer about new episodes of titles in "watching" | S | When the sync job finds a new episode, a notification is created for every user who has the title in "watching" | Interviews F3 (R3) |
 | FR-21 | Sources other than YouTube (Vimeo, Bilibili) | W | — | — |
 
 ## 6.3 Non-functional requirements

@@ -11,7 +11,7 @@
   4. Open a Pull Request that references the task and describes how the change was checked.
   5. The other team member reviews the PR.
   6. Merge, add the PR link to the task, and move the task to Done.
-- **Tags:** one tag for each submitted stage (`prob-period-1`, then `pre-defense-1`, `pre-defense-2`, `final-pre-defense`). Tags are never moved after submission.
+- **Tags:** one tag for each submitted stage (`prob-period-1`, then `pre-defense-2`, `final-pre-defense`). Tags are never moved after submission.
 - **Meetings:** weekly team sync; meetings with the supervisor every two weeks.
 
 ## 10.2 Allocation of responsibilities
@@ -28,13 +28,15 @@
 
 | # | Milestone | Main deliverables | Due |
 |---|---|---|---|
-| M1 | Probationary period 1 (`prob-period-1`) | Sections 1–11 of this documentation, prototype, YouTrack | 24.10.2026 |
-| M2 | Backend and frontend skeleton | Spring Boot + PostgreSQL + Flyway, React app, Docker Compose, CI | mid-Nov 2026 |
-| M3 | Catalogue MVP | CRUD, search, filters, title page, embed player | early Dec 2026 |
-| M4 | Pre-defense 1 | Accounts, ratings, lists, YouTube import, moderation | Dec 2026 (planned, aligned with the official schedule when published) |
-| M5 | Recommendations | Profile, ranking, cold start, offline evaluation | Feb 2027 (planned) |
-| M6 | Testing and evaluation | Load, security, user test | Mar 2027 (planned) |
-| M7 | Final pre-defense and defence | Thesis, deployment, presentation | Apr–May 2027 (planned) |
+| M1 | Defense 1 / probationary period 1 (`prob-period-1`) | Documentation sections 1–11, interviews, React prototype, YouTrack and repository setup | 24.10.2026 (done) |
+| M2 | Backend and frontend skeleton | Spring Boot + PostgreSQL + Flyway migration, React app from the prototype, Docker Compose, CI on GitHub Actions | Nov 2026 |
+| M3 | Catalogue MVP | Catalogue CRUD, search, filters, title page, embed player, YouTube playlist import with mocked API tests | Dec 2026 |
+| M4 | **Pre-defense 2** (`pre-defense-2`) | M2 + M3 running and demonstrated; supervisor feedback items 1–8 closed with evidence; usability test of the prototype; additional interviews | date set by the university |
+| M5 | Recommendations | Profile, ranking, cold start, offline evaluation against baselines | after pre-defense 2 |
+| M6 | Testing and evaluation | Load, security, usability study, results chapter | before final pre-defense |
+| M7 | Final pre-defense and defense (`final-pre-defense`) | Full system, thesis, presentation | date set by the university |
+
+Deliverables are assigned to the checkpoint in which they are demonstrated, not planned. Dates for M4 and M7 will be filled in when the official schedule is published.
 
 ## 10.4 Dependencies
 
